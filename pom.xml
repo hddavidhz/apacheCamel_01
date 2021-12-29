@@ -16,12 +16,6 @@
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     <log4j2-version>2.13.3</log4j2-version>
   </properties>
-    
-  <configuration>
-    <processTypes>
-       <web>java $JAVA_OPTS -cp target/classes:target/dependency/* Main</web>
-    </processTypes>
-  </configuration>
 
   <dependencyManagement>
     <dependencies>
@@ -115,6 +109,20 @@
           <target>1.8</target>
         </configuration>
       </plugin>
+             
+      <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <version>3.0.1</version>
+                <executions>
+                    <execution>
+                        <id>copy-dependencies</id>
+                        <phase>package</phase>
+                        <goals><goal>copy-dependencies</goal></goals>
+                    </execution>
+                </executions>
+      </plugin>
+             
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-resources-plugin</artifactId>
@@ -140,6 +148,11 @@
         <groupId>com.heroku.sdk</groupId>
         <artifactId>heroku-maven-plugin</artifactId>
         <version>2.0.8</version>
+        <configuration>
+          <processTypes>
+            <web>java $JAVA_OPTS -cp target/classes:target/dependency/* Main</web>
+          </processTypes>
+        </configuration>
       </plugin>
 
     </plugins>
