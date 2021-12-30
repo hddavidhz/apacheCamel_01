@@ -143,7 +143,7 @@
         </configuration>
       </plugin>
       
-      <!-- Heroku        
+      <!-- Heroku -->       
                <plugin>
                  <groupId>com.heroku.sdk</groupId>
                  <artifactId>heroku-maven-plugin</artifactId>
@@ -154,7 +154,7 @@
                    </processTypes>
                  </configuration>
                </plugin>
-      -->
+      
     </plugins>
   </build>
 
