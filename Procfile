@@ -1,1 +1,1 @@
-web: java $JAVA_OPTS -cp target/classes/org/example/*MyRouteBuilder
+web: java $JAVA_OPTS -jar target/dependency/Came_02.jar --port $PORT target/org.example.jar
